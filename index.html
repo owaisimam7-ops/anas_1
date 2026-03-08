@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SplashCircle.Co | Campus Assistant</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    nav {
+      background: #ffffff;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: #0f172a;
+    }
+
+    .logo span {
+      color: #2563eb;
+    }
+
+    .nav-links a {
+      margin-left: 22px;
+      color: #334155;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0f172a, #1d4ed8);
+      color: white;
+      padding: 100px 0 80px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 54px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 650px;
+      color: #dbeafe;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons a {
+      display: inline-block;
+      margin-right: 14px;
+      margin-bottom: 10px;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: #1d4ed8;
+    }
+
+    .btn-primary:hover {
+      background: #e2e8f0;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid #ffffff;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+
+    .hero-card h3 {
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+
+    .hero-card p {
+      color: #eff6ff;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 18px;
+      font-size: 38px;
+      color: #0f172a;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 45px;
+      color: #475569;
+      font-size: 17px;
+    }
+
+    .about-box {
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 18px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+    }
+
+    .features-grid,
+    .steps-grid,
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-top: 25px;
+    }
+
+    .feature-card,
+    .step-card,
+    .audience-card {
+      background: #ffffff;
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+      transition: transform 0.25s ease;
+    }
+
+    .feature-card:hover,
+    .step-card:hover,
+    .audience-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .feature-card h3,
+    .step-card h3,
+    .audience-card h3 {
+      color: #1d4ed8;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .highlight-section {
+      background: #eff6ff;
+    }
+
+    .vision-box {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      color: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 28px rgba(37, 99, 235, 0.25);
+    }
+
+    .vision-box h2 {
+      margin-bottom: 15px;
+      font-size: 34px;
+    }
+
+    .vision-box p {
+      max-width: 850px;
+      margin: auto;
+      font-size: 17px;
+      color: #dbeafe;
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .contact-card,
+    .contact-info {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+    }
+
+    .contact-card h3,
+    .contact-info h3 {
+      margin-bottom: 16px;
+      color: #0f172a;
+      font-size: 24px;
+    }
+
+    .contact-card p,
+    .contact-info p {
+      margin-bottom: 14px;
+      color: #475569;
+    }
+
+    .contact-info a {
+      color: #2563eb;
+      font-weight: bold;
+      word-break: break-word;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 22px 15px;
+      font-size: 15px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .nav-content {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links {
+        text-align: center;
+      }
+
+      .nav-links a {
+        display: inline-block;
+        margin: 8px 10px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 75px 0 60px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .section-title {
+        font-size: 30px;
+      }
+
+      .hero p,
+      .section-subtitle {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container nav-content">
+      <div class="logo">SplashCircle<span>.Co</span></div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#how">How It Works</a>
+        <a href="#vision">Vision</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>Helping New Students Settle In With Confidence</h1>
+        <p>
+          SplashCircle.Co is a student-focused digital platform designed to support newcomers through senior guidance,
+          campus help, digital connection, and real student experience. Starting from UOW campus, our goal is to build
+          a smarter and more connected student community.
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-primary">Contact Us</a>
+          <a href="#about" class="btn-secondary">Explore More</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Why SplashCircle.Co?</h3>
+        <p>✔ Connect newcomers with experienced seniors</p>
+        <p>✔ Make student support more digital and accessible</p>
+        <p>✔ Help students understand campus life faster</p>
+        <p>✔ Build a future-ready support community for universities</p>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About SplashCircle.Co</h2>
+      <p class="section-subtitle">
+        SplashCircle.Co is a digital student support platform built to make university life easier for new students.
+        It begins with UOW campus and aims to grow into a wider student support network across more universities and locations.
+      </p>
+
+      <div class="about-box">
+        <p>
+          Many newcomers feel confused when they enter university for the first time. They often need help with campus life,
+          routines, guidance, social adjustment, and understanding how everything works. SplashCircle.Co solves this by
+          creating a digital platform where students can connect with experienced seniors, ask questions, and receive useful support.
+        </p>
+        <br>
+        <p>
+          Our platform is not only about communication. It is about building a trusted ecosystem for students where guidance,
+          mentorship, and student experience come together in one place. This helps newcomers feel more comfortable, more informed,
+          and more connected from the start.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="highlight-section">
+    <div class="container">
+      <h2 class="section-title">Our Core Features</h2>
+      <p class="section-subtitle">
+        These are the main ways SplashCircle.Co creates value for students and supports a better campus experience.
+      </p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Senior Mentorship</h3>
+          <p>
+            New students can connect with experienced seniors who understand university life and can provide real, practical guidance.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Campus Assistance</h3>
+          <p>
+            Students can get help related to campus routines, common issues, academic adjustment, and settling into student life.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Digital Support Network</h3>
+          <p>
+            We digitalise student support so help becomes faster, easier to access, and better organised.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Growth Potential</h3>
+          <p>
+            Starting with UOW, SplashCircle.Co is designed to expand to more campuses and become a scalable student solution.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Who We Help</h2>
+      <p class="section-subtitle">
+        SplashCircle.Co is designed for different types of students who need connection, guidance, and clarity.
+      </p>
+
+      <div class="audience-grid">
+        <div class="audience-card">
+          <h3>Newcomers</h3>
+          <p>
+            Students entering campus for the first time who need support, direction, and friendly guidance.
+          </p>
+        </div>
+
+        <div class="audience-card">
+          <h3>Senior Students</h3>
+          <p>
+            Experienced students who want to help juniors and become part of a stronger student community.
+          </p>
+        </div>
+
+        <div class="audience-card">
+          <h3>Campus Communities</h3>
+          <p>
+            Universities and student groups that want to improve student engagement and support digitally.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="highlight-section">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">
+        SplashCircle.Co keeps the process simple, student-friendly, and easy to grow.
+      </p>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <h3>1. Students Visit the Platform</h3>
+          <p>
+            New students access SplashCircle.Co to learn about support options and explore student guidance.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <h3>2. They Connect With Seniors</h3>
+          <p>
+            Experienced senior students become the first point of support for newcomers through guidance and communication.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <h3>3. They Receive Practical Help</h3>
+          <p>
+            Students get assistance related to university life, adjustment, and campus understanding in a more direct way.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <h3>4. The Community Expands</h3>
+          <p>
+            As the number of students grows, SplashCircle.Co becomes a larger digital student ecosystem across campuses.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vision">
+    <div class="container">
+      <div class="vision-box">
+        <h2>Our Vision</h2>
+        <p>
+          We aim to build a modern student support ecosystem where every newcomer feels guided, connected, and confident.
+          SplashCircle.Co wants to transform campus support into a digital experience that can expand beyond one university
+          and create long-term impact for students everywhere.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-subtitle">
+        Reach out for collaboration, student support, partnerships, or to learn more about SplashCircle.Co.
+      </p>
+
+      <div class="contact-wrapper">
+        <div class="contact-card">
+          <h3>Why Contact Us?</h3>
+          <p>• Ask about the platform and its idea</p>
+          <p>• Connect for collaboration opportunities</p>
+          <p>• Learn how SplashCircle.Co can support students</p>
+          <p>• Follow the brand and future updates</p>
+        </div>
+
+        <div class="contact-info">
+          <h3>Business Details</h3>
+          <p><strong>Business Name:</strong> SplashCircle.Co</p>
+          <p><strong>Email:</strong> <a href="mailto:anasimam785@gmail.com">anasimam785@gmail.com</a></p>
+          <p><strong>Phone:</strong> <a href="tel:+601114040976">01114040976</a></p>
+          <p><strong>Location:</strong> Kuala Lumpur, Malaysia</p>
+          <p><strong>Instagram:</strong> <a href="https://www.instagram.com/splashcircle.co/" target="_blank">instagram.com/splashcircle.co</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 SplashCircle.Co. All Rights Reserved. | Designed for student support and digital campus guidance.</p>
+  </footer>
+
+</body>
+</html>
