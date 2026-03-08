@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SplashCircle.Co | Campus Assistant</title>
+  <title>SplashCircle.Co | Student Support Platform</title>
   <style>
     * {
       margin: 0;
@@ -55,7 +55,7 @@
     }
 
     .nav-links a {
-      margin-left: 22px;
+      margin-left: 18px;
       color: #334155;
       font-weight: 600;
       font-size: 15px;
@@ -68,7 +68,7 @@
     .hero {
       background: linear-gradient(135deg, #0f172a, #1d4ed8);
       color: white;
-      padding: 100px 0 80px;
+      padding: 95px 0 75px;
     }
 
     .hero-grid {
@@ -79,21 +79,21 @@
     }
 
     .hero h1 {
-      font-size: 54px;
+      font-size: 52px;
       line-height: 1.15;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .hero p {
       font-size: 18px;
       max-width: 650px;
       color: #dbeafe;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
 
     .hero-buttons a {
       display: inline-block;
-      margin-right: 14px;
+      margin-right: 12px;
       margin-bottom: 10px;
       padding: 14px 24px;
       border-radius: 10px;
@@ -141,12 +141,12 @@
     }
 
     section {
-      padding: 80px 0;
+      padding: 78px 0;
     }
 
     .section-title {
       text-align: center;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       font-size: 38px;
       color: #0f172a;
     }
@@ -159,16 +159,21 @@
       font-size: 17px;
     }
 
-    .about-box {
+    .about-box,
+    .map-box,
+    .contact-card,
+    .contact-info,
+    .form-box {
       background: #ffffff;
-      padding: 35px;
+      padding: 32px;
       border-radius: 18px;
       box-shadow: 0 6px 24px rgba(0,0,0,0.06);
     }
 
     .features-grid,
+    .mentor-grid,
     .steps-grid,
-    .audience-grid {
+    .faq-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 24px;
@@ -176,8 +181,9 @@
     }
 
     .feature-card,
+    .mentor-card,
     .step-card,
-    .audience-card {
+    .faq-item {
       background: #ffffff;
       padding: 28px;
       border-radius: 18px;
@@ -186,20 +192,66 @@
     }
 
     .feature-card:hover,
+    .mentor-card:hover,
     .step-card:hover,
-    .audience-card:hover {
+    .faq-item:hover {
       transform: translateY(-6px);
     }
 
     .feature-card h3,
+    .mentor-card h3,
     .step-card h3,
-    .audience-card h3 {
+    .faq-item h3 {
       color: #1d4ed8;
       margin-bottom: 12px;
       font-size: 22px;
     }
 
     .highlight-section {
+      background: #eff6ff;
+    }
+
+    .mentor-tag {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      padding: 6px 12px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 14px;
+    }
+
+    .mentor-actions {
+      margin-top: 18px;
+    }
+
+    .mentor-actions a {
+      display: inline-block;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .small-btn {
+      background: #2563eb;
+      color: white;
+    }
+
+    .small-btn:hover {
+      background: #1d4ed8;
+    }
+
+    .small-outline {
+      border: 2px solid #2563eb;
+      color: #2563eb;
+      background: white;
+    }
+
+    .small-outline:hover {
       background: #eff6ff;
     }
 
@@ -231,27 +283,6 @@
       margin-top: 30px;
     }
 
-    .contact-card,
-    .contact-info {
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.06);
-    }
-
-    .contact-card h3,
-    .contact-info h3 {
-      margin-bottom: 16px;
-      color: #0f172a;
-      font-size: 24px;
-    }
-
-    .contact-card p,
-    .contact-info p {
-      margin-bottom: 14px;
-      color: #475569;
-    }
-
     .contact-info a {
       color: #2563eb;
       font-weight: bold;
@@ -260,6 +291,37 @@
 
     .contact-info a:hover {
       text-decoration: underline;
+    }
+
+    .submit-btn {
+      display: inline-block;
+      border: none;
+      background: #2563eb;
+      color: white;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background: #1d4ed8;
+    }
+
+    iframe {
+      width: 100%;
+      border: 0;
+      border-radius: 14px;
+      margin-top: 18px;
+    }
+
+    .map-frame {
+      height: 380px;
+    }
+
+    .form-frame {
+      height: 900px;
+      background: white;
     }
 
     footer {
@@ -312,6 +374,10 @@
       .section-subtitle {
         font-size: 16px;
       }
+
+      .form-frame {
+        height: 1000px;
+      }
     }
   </style>
 </head>
@@ -323,8 +389,9 @@
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#features">Features</a>
-        <a href="#how">How It Works</a>
-        <a href="#vision">Vision</a>
+        <a href="#mentors">Seniors</a>
+        <a href="#request-help">Help Form</a>
+        <a href="#map">Map</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -333,24 +400,23 @@
   <header class="hero">
     <div class="container hero-grid">
       <div>
-        <h1>Helping New Students Settle In With Confidence</h1>
+        <h1>Helping New Students Connect, Settle In, and Succeed</h1>
         <p>
-          SplashCircle.Co is a student-focused digital platform designed to support newcomers through senior guidance,
-          campus help, digital connection, and real student experience. Starting from UOW campus, our goal is to build
-          a smarter and more connected student community.
+          SplashCircle.Co is a student-focused digital support platform designed for UOW students and future campuses.
+          It connects newcomers with experienced seniors, provides guidance, and makes campus support more accessible.
         </p>
         <div class="hero-buttons">
-          <a href="#contact" class="btn-primary">Contact Us</a>
-          <a href="#about" class="btn-secondary">Explore More</a>
+          <a href="#request-help" class="btn-primary">Get Student Help</a>
+          <a href="#mentors" class="btn-secondary">Meet Seniors</a>
         </div>
       </div>
 
       <div class="hero-card">
-        <h3>Why SplashCircle.Co?</h3>
-        <p>✔ Connect newcomers with experienced seniors</p>
-        <p>✔ Make student support more digital and accessible</p>
-        <p>✔ Help students understand campus life faster</p>
-        <p>✔ Build a future-ready support community for universities</p>
+        <h3>What Students Can Do Here</h3>
+        <p>✔ Contact senior students for help</p>
+        <p>✔ Ask questions about campus life</p>
+        <p>✔ Explore university location on the map</p>
+        <p>✔ Submit support requests digitally</p>
       </div>
     </div>
   </header>
@@ -359,21 +425,19 @@
     <div class="container">
       <h2 class="section-title">About SplashCircle.Co</h2>
       <p class="section-subtitle">
-        SplashCircle.Co is a digital student support platform built to make university life easier for new students.
-        It begins with UOW campus and aims to grow into a wider student support network across more universities and locations.
+        SplashCircle.Co makes student life easier by building a bridge between newcomers and experienced seniors.
       </p>
 
       <div class="about-box">
         <p>
-          Many newcomers feel confused when they enter university for the first time. They often need help with campus life,
-          routines, guidance, social adjustment, and understanding how everything works. SplashCircle.Co solves this by
-          creating a digital platform where students can connect with experienced seniors, ask questions, and receive useful support.
+          New students often feel confused in their early university days. They may need guidance about campus life,
+          academic environment, routines, and general support. SplashCircle.Co solves this by offering a digital platform
+          where newcomers can connect with seniors and get practical help.
         </p>
         <br>
         <p>
-          Our platform is not only about communication. It is about building a trusted ecosystem for students where guidance,
-          mentorship, and student experience come together in one place. This helps newcomers feel more comfortable, more informed,
-          and more connected from the start.
+          The idea starts from UOW campus, but the vision is bigger. In the future, SplashCircle.Co can grow into a
+          broader student support network for other universities and communities as well.
         </p>
       </div>
     </div>
@@ -381,109 +445,146 @@
 
   <section id="features" class="highlight-section">
     <div class="container">
-      <h2 class="section-title">Our Core Features</h2>
+      <h2 class="section-title">Core Features</h2>
       <p class="section-subtitle">
-        These are the main ways SplashCircle.Co creates value for students and supports a better campus experience.
+        These features make the platform useful, practical, and easy for students to use.
       </p>
 
       <div class="features-grid">
         <div class="feature-card">
-          <h3>Senior Mentorship</h3>
-          <p>
-            New students can connect with experienced seniors who understand university life and can provide real, practical guidance.
-          </p>
+          <h3>Senior-Junior Connection</h3>
+          <p>Students can contact seniors for guidance, support, and useful university advice.</p>
         </div>
 
         <div class="feature-card">
-          <h3>Campus Assistance</h3>
-          <p>
-            Students can get help related to campus routines, common issues, academic adjustment, and settling into student life.
-          </p>
+          <h3>Student Help Requests</h3>
+          <p>Newcomers can submit requests through a real online form for support and guidance.</p>
         </div>
 
         <div class="feature-card">
-          <h3>Digital Support Network</h3>
-          <p>
-            We digitalise student support so help becomes faster, easier to access, and better organised.
-          </p>
+          <h3>University Map Access</h3>
+          <p>Students can quickly view the UOW Malaysia location and understand where the university is.</p>
         </div>
 
         <div class="feature-card">
-          <h3>Growth Potential</h3>
-          <p>
-            Starting with UOW, SplashCircle.Co is designed to expand to more campuses and become a scalable student solution.
-          </p>
+          <h3>Scalable Campus Support</h3>
+          <p>The platform is designed to start from one campus and expand to more student communities.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section>
+  <section id="mentors">
     <div class="container">
-      <h2 class="section-title">Who We Help</h2>
+      <h2 class="section-title">Connect With Senior Students</h2>
       <p class="section-subtitle">
-        SplashCircle.Co is designed for different types of students who need connection, guidance, and clarity.
+        These are sample senior mentor profiles. You can replace these names and contacts with real seniors later.
       </p>
 
-      <div class="audience-grid">
-        <div class="audience-card">
-          <h3>Newcomers</h3>
-          <p>
-            Students entering campus for the first time who need support, direction, and friendly guidance.
-          </p>
+      <div class="mentor-grid">
+        <div class="mentor-card">
+          <div class="mentor-tag">Senior Mentor</div>
+          <h3>Ahmed Raza</h3>
+          <p><strong>Department:</strong> Computer Science</p>
+          <p><strong>Can help with:</strong> Campus guidance, assignments, student life</p>
+          <div class="mentor-actions">
+            <a class="small-btn" href="https://wa.me/60111111111" target="_blank">WhatsApp</a>
+            <a class="small-outline" href="mailto:ahmed@example.com">Email</a>
+          </div>
         </div>
 
-        <div class="audience-card">
-          <h3>Senior Students</h3>
-          <p>
-            Experienced students who want to help juniors and become part of a stronger student community.
-          </p>
+        <div class="mentor-card">
+          <div class="mentor-tag">Senior Mentor</div>
+          <h3>Sarah Khan</h3>
+          <p><strong>Department:</strong> Business</p>
+          <p><strong>Can help with:</strong> Enrollment tips, campus routine, social adjustment</p>
+          <div class="mentor-actions">
+            <a class="small-btn" href="https://wa.me/60112222222" target="_blank">WhatsApp</a>
+            <a class="small-outline" href="mailto:sarah@example.com">Email</a>
+          </div>
         </div>
 
-        <div class="audience-card">
-          <h3>Campus Communities</h3>
-          <p>
-            Universities and student groups that want to improve student engagement and support digitally.
-          </p>
+        <div class="mentor-card">
+          <div class="mentor-tag">Senior Mentor</div>
+          <h3>Hassan Ali</h3>
+          <p><strong>Department:</strong> Engineering</p>
+          <p><strong>Can help with:</strong> Timetable, facilities, orientation support</p>
+          <div class="mentor-actions">
+            <a class="small-btn" href="https://wa.me/60113333333" target="_blank">WhatsApp</a>
+            <a class="small-outline" href="mailto:hassan@example.com">Email</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="how" class="highlight-section">
+  <section id="request-help" class="highlight-section">
+    <div class="container">
+      <h2 class="section-title">Student Help Request</h2>
+      <p class="section-subtitle">
+        New students can fill in this support form directly through SplashCircle.Co.
+      </p>
+
+      <div class="form-box">
+        <iframe
+          class="form-frame"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSeP2I4NYziSi0HhJP7pz9bX3lP5-svZe7eQ8HABb-bYLJLXyA/viewform?embedded=true"
+          marginheight="0"
+          marginwidth="0">
+          Loading…
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="map">
+    <div class="container">
+      <h2 class="section-title">University Map</h2>
+      <p class="section-subtitle">
+        New students can use this map to easily find UOW Malaysia and understand the campus location.
+      </p>
+
+      <div class="map-box">
+        <p>
+          SplashCircle.Co helps students not only through guidance and mentorship, but also by making campus access easier for newcomers.
+        </p>
+
+        <iframe
+          class="map-frame"
+          src="https://www.google.com/maps?q=UOW%20Malaysia&z=17&output=embed"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="highlight-section">
     <div class="container">
       <h2 class="section-title">How It Works</h2>
       <p class="section-subtitle">
-        SplashCircle.Co keeps the process simple, student-friendly, and easy to grow.
+        SplashCircle.Co keeps the student support journey simple and useful.
       </p>
 
       <div class="steps-grid">
         <div class="step-card">
-          <h3>1. Students Visit the Platform</h3>
-          <p>
-            New students access SplashCircle.Co to learn about support options and explore student guidance.
-          </p>
+          <h3>1. New Student Visits</h3>
+          <p>The student opens the website and explores support options.</p>
         </div>
 
         <div class="step-card">
-          <h3>2. They Connect With Seniors</h3>
-          <p>
-            Experienced senior students become the first point of support for newcomers through guidance and communication.
-          </p>
+          <h3>2. Chooses a Senior</h3>
+          <p>The student checks mentor cards and contacts a senior through WhatsApp or email.</p>
         </div>
 
         <div class="step-card">
-          <h3>3. They Receive Practical Help</h3>
-          <p>
-            Students get assistance related to university life, adjustment, and campus understanding in a more direct way.
-          </p>
+          <h3>3. Sends a Request</h3>
+          <p>The student fills the help form to explain what support is needed.</p>
         </div>
 
         <div class="step-card">
-          <h3>4. The Community Expands</h3>
-          <p>
-            As the number of students grows, SplashCircle.Co becomes a larger digital student ecosystem across campuses.
-          </p>
+          <h3>4. Gets Guided</h3>
+          <p>The student receives useful campus guidance and settles in more confidently.</p>
         </div>
       </div>
     </div>
@@ -494,10 +595,35 @@
       <div class="vision-box">
         <h2>Our Vision</h2>
         <p>
-          We aim to build a modern student support ecosystem where every newcomer feels guided, connected, and confident.
-          SplashCircle.Co wants to transform campus support into a digital experience that can expand beyond one university
-          and create long-term impact for students everywhere.
+          We want to turn student support into a smarter digital ecosystem where every newcomer feels connected,
+          informed, and confident. SplashCircle.Co aims to become a trusted student platform that can grow across campuses.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">
+        These questions make the website look more real and complete.
+      </p>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>Who can use SplashCircle.Co?</h3>
+          <p>Any student, especially newcomers, who need help related to university life and campus adjustment.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can I become a senior mentor?</h3>
+          <p>Yes. In the future, senior students can join the platform to support juniors and strengthen the student community.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Is this only for UOW?</h3>
+          <p>It starts with UOW, but the idea is designed to expand to other campuses later.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -506,16 +632,16 @@
     <div class="container">
       <h2 class="section-title">Contact Us</h2>
       <p class="section-subtitle">
-        Reach out for collaboration, student support, partnerships, or to learn more about SplashCircle.Co.
+        Reach out for partnerships, support, and future collaboration.
       </p>
 
       <div class="contact-wrapper">
         <div class="contact-card">
           <h3>Why Contact Us?</h3>
-          <p>• Ask about the platform and its idea</p>
-          <p>• Connect for collaboration opportunities</p>
-          <p>• Learn how SplashCircle.Co can support students</p>
-          <p>• Follow the brand and future updates</p>
+          <p>• Learn more about the platform idea</p>
+          <p>• Discuss collaboration opportunities</p>
+          <p>• Share student support suggestions</p>
+          <p>• Follow updates and future growth</p>
         </div>
 
         <div class="contact-info">
@@ -531,7 +657,7 @@
   </section>
 
   <footer>
-    <p>© 2026 SplashCircle.Co. All Rights Reserved. | Designed for student support and digital campus guidance.</p>
+    <p>© 2026 SplashCircle.Co. All Rights Reserved. | Built for digital student support.</p>
   </footer>
 
 </body>
